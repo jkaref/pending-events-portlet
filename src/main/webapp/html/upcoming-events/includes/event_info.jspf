@@ -26,7 +26,7 @@ SOFTWARE.
 <c:set var="timeZone" value="Europe/London" />
 
 <p class="title">
-	<aui:a href="/veranstaltungskalender/-/calendar/event/${event.calendarBookingId}">
+	<aui:a href="${calendar_portlet_url}-/calendar/event/${event.calendarBookingId}">
 		${event.titleCurrentValue}
 	</aui:a>
 </p>

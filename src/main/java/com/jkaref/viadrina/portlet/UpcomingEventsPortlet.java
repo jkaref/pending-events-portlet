@@ -44,6 +44,7 @@ import com.jkaref.viadrina.portlet.service.ServiceUtil;
 import com.jkaref.viadrina.portlet.util.ParamUtil;
 import com.liferay.calendar.model.Calendar;
 import com.liferay.calendar.model.CalendarBooking;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 
 /**
@@ -59,7 +60,7 @@ import com.liferay.util.bridges.mvc.MVCPortlet;
  */
 public class UpcomingEventsPortlet extends MVCPortlet {
 
-    private static final Logger LOG = LoggerFactory.getLogger(UpcomingEventsPortlet.class);
+	private static final Logger LOG = LoggerFactory.getLogger(UpcomingEventsPortlet.class);
 
 
     /*
@@ -77,18 +78,22 @@ public class UpcomingEventsPortlet extends MVCPortlet {
             String calendarId = ParamUtil.getCalendarId(preferences);
             String hiddenEventsIds = ParamUtil.getHiddenEventsJson(preferences);
             String backgroundColor = ParamUtil.getBackgroundColor(preferences);
+            String calendarUrl = ParamUtil.getCalendarUrl(preferences);
 
             List<CalendarBooking> visibleEvents =
                     ServiceUtil.getVisibleEvents(limit, calendarId, hiddenEventsIds);
 
+            
+            
             request.setAttribute(Param.VISIBLE_EVENTS.string(), visibleEvents);
             request.setAttribute(Param.CALENDAR_ID.string(), calendarId);
+            request.setAttribute(Param.CALENDAR_PORTLET_URL.string(), calendarUrl);
             request.setAttribute(Param.BACKGROUND_COLOR.string(), backgroundColor);
 
             LOG.info("[doView] - Showing {} {}.",
                     visibleEvents.size(),
                     visibleEvents.size() == 1 ? "event" : "events"
-            );
+            );            
 
             super.doView(request, response);
     }
@@ -102,6 +107,7 @@ public class UpcomingEventsPortlet extends MVCPortlet {
         String calendarId = ParamUtil.getCalendarId(preferences);
         String hiddenEventJson = ParamUtil.getHiddenEventsJson(preferences);
         String backgroundColor = ParamUtil.getBackgroundColor(preferences);
+        String calendarUrl = ParamUtil.getCalendarUrl(preferences);
 
         List<Calendar> calendars = ServiceUtil.getCalendars();
 
@@ -120,6 +126,7 @@ public class UpcomingEventsPortlet extends MVCPortlet {
         request.setAttribute(Param.LIMIT.string(), limit);
         request.setAttribute(Param.CALENDARS.string(), calendars);
         request.setAttribute(Param.CALENDAR_ID.string(), calendarId);
+        request.setAttribute(Param.CALENDAR_PORTLET_URL.string(), calendarUrl);
         request.setAttribute(Param.VISIBLE_EVENTS.string(), visibleEvents);
         request.setAttribute(Param.HIDDEN_EVENTS.string(), hiddenEvents);
         request.setAttribute(Param.HIDDEN_EVENTS_JSON.string(), hiddenEventJson);
@@ -134,12 +141,19 @@ public class UpcomingEventsPortlet extends MVCPortlet {
 
         String limit = ParamUtil.getLimit(request);
         String calendarId = ParamUtil.getCalendarId(request);
+        String calendarUrl = ParamUtil.getCalendarUrl(request);
         String hiddenEventsJson = ParamUtil.getHiddenEventsJson(request);
         String backgroundColor = ParamUtil.getBackgroundColor(request);
+        
+        if (!calendarUrl.startsWith(StringPool.SLASH))
+        		calendarUrl = StringPool.SLASH + calendarUrl;
+        
+        if (!calendarUrl.endsWith(StringPool.SLASH))
+        		calendarUrl = calendarUrl + StringPool.SLASH;
 
         LOG.debug("[savePreferences] - Saving preferences ["
-                + "limit:{}, calendarId:{}, hiddenEventsJson:{}, backgroundColor:{}] )",
-                limit, calendarId, hiddenEventsJson, backgroundColor);
+                + "limit:{}, calendarId:{}, calendarUrl:{}, hiddenEventsJson:{}, backgroundColor:{}] )",
+                limit, calendarId, calendarUrl, hiddenEventsJson, backgroundColor);
 
         PortletPreferences preferences = request.getPreferences();
 
@@ -147,6 +161,7 @@ public class UpcomingEventsPortlet extends MVCPortlet {
 
             preferences.setValue(Param.LIMIT.string(), limit);
             preferences.setValue(Param.CALENDAR_ID.string(), calendarId);
+            preferences.setValue(Param.CALENDAR_PORTLET_URL.string(), calendarUrl);
             preferences.setValue(Param.HIDDEN_EVENTS_JSON.string(), hiddenEventsJson);
             preferences.setValue(Param.BACKGROUND_COLOR.string(), backgroundColor);
 
