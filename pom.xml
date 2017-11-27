@@ -18,7 +18,6 @@
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
     <build>
-        <finalName>jkaref-${project.name}</finalName>
         <plugins>
             <plugin>
                 <groupId>com.liferay.maven.plugins</groupId>
