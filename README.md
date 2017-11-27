@@ -10,10 +10,10 @@ Displays a list of upcoming events from the selected liferay calendar portlet. A
  * Either install the jar locally or deploy it to an artifactory of your choice in order to satisfy the maven compile time dependency.
  * Copy the jar to your container's global include path (e.g. /lib/ext/ for tomcat) to make the jar available at runtime.
 
-2. Requires version 1.0.0 of the event-support-library.jar at compile and runtime.
+2. Requires version 1.0.0 of the event-support-library.jar at compile time.
  * Build the jar from [source](https://github.com/jkaref/event-support-library).
  * Either install the jar locally or deploy it to an artifactory of your choice in order to satisfy the maven compile time dependency.
- * Copy the jar to your container's global include path (e.g. /lib/ext/ for tomcat) to make the jar available at runtime.
+ 
 
 # Build
 First make sure you have setup your settings.xml correctly. The following properties need to be set for the maven-liferay-plugin to run:
