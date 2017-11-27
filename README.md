@@ -36,4 +36,4 @@ mvn clean package liferay:deploy
 ```
 
 # Usage
-After the porlet has been added to a page for the first time, you will have to select a source calendar from the preferences menu.   
+After the porlet has been added to a page for the first time, you will have to select a source calendar from the preferences menu. Also, if you want to be able to navigate to event details from the list, you will have to set the url pointing to your calendar instance in the preferences menu.
