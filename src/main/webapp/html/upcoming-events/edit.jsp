@@ -48,6 +48,10 @@
             </aui:option>
         </c:forEach>
     </aui:select>
+    
+    	<aui:input name="calendar_portlet_url" value="${calendar_portlet_url}" 
+		label="label.input.calendar_url" 
+	/>
 
     <c:choose>
 		<c:when test="${not empty calendar_id}">		
@@ -71,9 +75,7 @@
 		</c:otherwise>
 	</c:choose>
 	
-	<aui:input name="calendar_portlet_url" value="${calendar_portlet_url}" 
-		label="label.input.calendar_url" 
-	/>
+
 
     <aui:input type="hidden" name="hidden_events_json" value="${hidden_events_json}" />
     
