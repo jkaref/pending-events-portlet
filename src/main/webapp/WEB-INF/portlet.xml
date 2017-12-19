@@ -2,16 +2,16 @@
 
 <portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0">
     <portlet>
-        <portlet-name>upcoming-events-portlet</portlet-name>
-        <display-name>upcoming-events-portlet</display-name>
-        <portlet-class>com.jkaref.viadrina.portlet.UpcomingEventsPortlet</portlet-class>
+        <portlet-name>pending-events-portlet</portlet-name>
+        <display-name>pending-events-portlet</display-name>
+        <portlet-class>com.jkaref.viadrina.portlet.PendingEventsPortlet</portlet-class>
         <init-param>
             <name>view-template</name>
-            <value>/html/upcoming-events/view.jsp</value>
+            <value>/html/pending-events/view.jsp</value>
         </init-param>
         <init-param>
             <name>edit-template</name>
-            <value>/html/upcoming-events/edit.jsp</value>
+            <value>/html/pending-events/edit.jsp</value>
         </init-param>
         <expiration-cache>0</expiration-cache>
         <supports>
@@ -22,9 +22,9 @@
         <supported-locale>de_DE</supported-locale>
         <resource-bundle>languages.Language</resource-bundle>
         <portlet-info>
-            <title>Upcoming Events Portlet</title>
-            <short-title>Upcoming Events</short-title>
-            <keywords>calendar, events, upcoming</keywords>
+            <title>Pending Events Portlet</title>
+            <short-title>Pending Events</short-title>
+            <keywords>calendar, events, pending, collaboration</keywords>
         </portlet-info>
         <security-role-ref>
             <role-name>administrator</role-name>

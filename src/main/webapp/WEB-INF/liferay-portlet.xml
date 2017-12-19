@@ -3,10 +3,10 @@
 
 <liferay-portlet-app>
 	<portlet>
-		<portlet-name>upcoming-events-portlet</portlet-name>
+		<portlet-name>pending-events-portlet</portlet-name>
 		<icon>/icon.png</icon>
-		<header-portlet-css>/css/upcoming-events/main.css</header-portlet-css>
-		<header-portlet-javascript>/js/upcoming-events/upcoming-events-edit.js</header-portlet-javascript>
+		<header-portlet-css>/css/pending-events/main.css</header-portlet-css>
+		<header-portlet-javascript>/js/pending-events/pending-events-edit.js</header-portlet-javascript>
 	</portlet>
 	<role-mapper>
 		<role-name>administrator</role-name>

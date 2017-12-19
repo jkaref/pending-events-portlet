@@ -3,6 +3,6 @@
 
 <display>
 	<category name="JKAREF">
-		<portlet id="upcoming-events-portlet" />
+		<portlet id="pending-events-portlet" />
 	</category>
 </display>

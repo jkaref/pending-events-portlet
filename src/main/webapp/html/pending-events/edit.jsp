@@ -57,7 +57,7 @@
 		<c:when test="${not empty calendar_id}">		
 			<c:choose>
 				<c:when test="${not empty visible_events}">		
-					<%@ include file="/html/upcoming-events/includes/event_list.jspf" %>				
+					<%@ include file="/html/pending-events/includes/event_list.jspf" %>				
 				</c:when>
 			
 				<c:otherwise>

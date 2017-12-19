@@ -58,9 +58,9 @@ import com.liferay.util.bridges.mvc.MVCPortlet;
  * - manual exclusion of events
  *
  */
-public class UpcomingEventsPortlet extends MVCPortlet {
+public class PendingEventsPortlet extends MVCPortlet {
 
-	private static final Logger LOG = LoggerFactory.getLogger(UpcomingEventsPortlet.class);
+	private static final Logger LOG = LoggerFactory.getLogger(PendingEventsPortlet.class);
 
 
     /*
