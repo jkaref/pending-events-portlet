@@ -41,7 +41,7 @@ SOFTWARE.
 				<fmt:formatDate	pattern="MMM" value="${startTime}" />
 			</span>
 			<span class="year">
-				<fmt:formatDate pattern="y" value="${startTime}" />
+				<fmt:formatDate pattern="y" value="${endTime}" />
 			</span>																	
 		</c:when>
 		
@@ -55,7 +55,7 @@ SOFTWARE.
 				<fmt:formatDate pattern="MMM" value="${endTime}" />
 			</span>
 			<span class="year">
-				<fmt:formatDate pattern="y" value="${startTime}" />
+				<fmt:formatDate pattern="y" value="${endTime}" />
 			</span>																									
 		</c:when>
 	
