@@ -1,7 +1,8 @@
 # Overview
-Displays a list of upcoming events from the selected liferay calendar portlet. Additional features include:
+Displays a simple list of pending events from the selected liferay calendar portlet. Additional features include:
 * customize the number of events to be displayed
 * customize the background color of calendar events in the list
+* customize the event details url
 * manually exclude events from being displayed
 
 # Dependencies
